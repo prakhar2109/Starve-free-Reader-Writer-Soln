@@ -8,10 +8,10 @@ The problem is when one process starts writing the database and another performs
 ###
 Another problem arises when one process starts writing the database and another process also starts writing. As both processes want to update the value of the data present in the file at the same time it will lead to the inconsistency in the database. 
 
-##Reader-Writer is categorized into three variants.
-###Give readers priority: 
+## Reader-Writer is categorized into three variants.
+### Give readers priority: 
 when there is at least one reader currently accessing the resource, allow new readers to access it as well. This can cause starvation if there are writers waiting to modify the resource and new readers arrive all the time, as the writers will never be granted access as long as there is at least one active reader.
-###Give writers priority:
+### Give writers priority:
 here, readers may starve.
-###Give neither priority: 
+### Give neither priority: 
 all readers and writers will be granted access to the resource in their order of arrival. If a writer arrives while readers are accessing the resource, it will wait until those readers free the resource, and then modify it. New readers arriving in the meantime will have to wait.
